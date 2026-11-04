@@ -1,0 +1,265 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "Mariana Costa",
+      "company": "Ateliê Horizonte",
+      "email": "mariana@ateliehorizonte.com",
+      "phone": "+55 11 98812-3401",
+      "status": "active",
+      "source": "website",
+      "value": 18500,
+      "createdAt": "2026-08-12T13:20:00.000Z",
+      "lastContactAt": "2026-10-29T14:00:00.000Z",
+      "notes": "Cliente recorrente. Tem interesse no plano anual."
+    },
+    {
+      "id": 2,
+      "name": "Rafael Martins",
+      "company": "Norte Arquitetura",
+      "email": "rafael@nortearquitetura.com",
+      "phone": "+55 21 99731-2208",
+      "status": "lead",
+      "source": "referral",
+      "value": 9200,
+      "createdAt": "2026-10-02T10:15:00.000Z",
+      "lastContactAt": "2026-10-30T16:30:00.000Z",
+      "notes": "Solicitou uma demonstração e proposta comercial."
+    },
+    {
+      "id": 3,
+      "name": "Camila Oliveira",
+      "company": "Clínica Vivaz",
+      "email": "camila@clinicavivaz.com.br",
+      "phone": "+55 31 99102-7744",
+      "status": "active",
+      "source": "linkedin",
+      "value": 24600,
+      "createdAt": "2026-07-19T09:45:00.000Z",
+      "lastContactAt": "2026-10-31T11:20:00.000Z",
+      "notes": "Contrato renovado em outubro."
+    },
+    {
+      "id": 4,
+      "name": "Lucas Ferreira",
+      "company": "Ferreira Consultoria",
+      "email": "lucas@ferreiraconsultoria.com",
+      "phone": "+55 19 99245-1088",
+      "status": "inactive",
+      "source": "event",
+      "value": 0,
+      "createdAt": "2026-05-06T15:10:00.000Z",
+      "lastContactAt": "2026-08-14T12:00:00.000Z",
+      "notes": "Projeto encerrado. Pode ser reativado no próximo trimestre."
+    },
+    {
+      "id": 5,
+      "name": "Beatriz Almeida",
+      "company": "Bela Forma Studio",
+      "email": "beatriz@belaformastudio.com",
+      "phone": "+55 41 99876-5532",
+      "status": "active",
+      "source": "website",
+      "value": 12700,
+      "createdAt": "2026-09-01T12:00:00.000Z",
+      "lastContactAt": "2026-10-27T13:15:00.000Z",
+      "notes": "Prefere contato por e-mail no período da tarde."
+    },
+    {
+      "id": 6,
+      "name": "Pedro Santos",
+      "company": "PS Tecnologia",
+      "email": "pedro@pstechnologia.dev",
+      "phone": "+55 11 97654-3310",
+      "status": "lead",
+      "source": "linkedin",
+      "value": 15400,
+      "createdAt": "2026-10-18T08:30:00.000Z",
+      "lastContactAt": "2026-10-28T09:00:00.000Z",
+      "notes": "Aguardando retorno sobre orçamento."
+    },
+    {
+      "id": 7,
+      "name": "Fernanda Ribeiro",
+      "company": "Ribeiro Odontologia",
+      "email": "fernanda@ribeiroodonto.com.br",
+      "phone": "+55 27 99901-8877",
+      "status": "active",
+      "source": "referral",
+      "value": 31800,
+      "createdAt": "2026-06-23T11:25:00.000Z",
+      "lastContactAt": "2026-10-25T17:45:00.000Z",
+      "notes": "Conta estratégica com múltiplas unidades."
+    },
+    {
+      "id": 8,
+      "name": "André Carvalho",
+      "company": "Carvalho & Lima Advogados",
+      "email": "andre@carvalholima.adv.br",
+      "phone": "+55 11 98123-6654",
+      "status": "inactive",
+      "source": "event",
+      "value": 0,
+      "createdAt": "2026-04-11T16:40:00.000Z",
+      "lastContactAt": "2026-07-02T10:10:00.000Z",
+      "notes": "Sem novas demandas desde julho."
+    },
+    {
+      "id": 9,
+      "name": "Juliana Mendes",
+      "company": "JM Design Interiores",
+      "email": "juliana@jmdesign.com",
+      "phone": "+55 48 99111-2040",
+      "status": "lead",
+      "source": "website",
+      "value": 6800,
+      "createdAt": "2026-10-24T14:05:00.000Z",
+      "lastContactAt": "2026-10-30T15:40:00.000Z",
+      "notes": "Interessada no pacote de implantação."
+    },
+    {
+      "id": 10,
+      "name": "Thiago Lima",
+      "company": "Lima Engenharia",
+      "email": "thiago@limaengenharia.com.br",
+      "phone": "+55 85 98765-1199",
+      "status": "active",
+      "source": "linkedin",
+      "value": 22100,
+      "createdAt": "2026-08-30T10:50:00.000Z",
+      "lastContactAt": "2026-10-30T10:00:00.000Z",
+      "notes": "Solicitou acesso para mais dois membros da equipe."
+    },
+    {
+      "id": 11,
+      "name": "Isabela Rocha",
+      "company": "Rocha Contabilidade",
+      "email": "isabela@rochacontabil.com.br",
+      "phone": "+55 51 99345-7788",
+      "status": "active",
+      "source": "referral",
+      "value": 14300,
+      "createdAt": "2026-09-15T09:00:00.000Z",
+      "lastContactAt": "2026-10-26T16:20:00.000Z",
+      "notes": "Quer avaliar integração com o sistema financeiro."
+    },
+    {
+      "id": 12,
+      "name": "Bruno Nascimento",
+      "company": "BN Marketing",
+      "email": "bruno@bnmarketing.com",
+      "phone": "+55 61 98444-9021",
+      "status": "active",
+      "source": "website",
+      "value": 17600,
+      "createdAt": "2026-07-07T13:35:00.000Z",
+      "lastContactAt": "2026-10-21T11:30:00.000Z",
+      "notes": "Cliente desde julho. Boa oportunidade de upsell."
+    }
+  ],
+  "activities": [
+    {
+      "id": 1,
+      "customerId": 1,
+      "type": "meeting",
+      "title": "Reunião de acompanhamento",
+      "description": "Revisão dos resultados e planejamento do próximo ciclo.",
+      "date": "2026-10-29T14:00:00.000Z",
+      "author": "Gabriel Bergamini"
+    },
+    {
+      "id": 2,
+      "customerId": 1,
+      "type": "email",
+      "title": "Envio da proposta anual",
+      "description": "Proposta comercial enviada para avaliação.",
+      "date": "2026-10-24T10:30:00.000Z",
+      "author": "Gabriel Bergamini"
+    },
+    {
+      "id": 3,
+      "customerId": 2,
+      "type": "call",
+      "title": "Ligação de qualificação",
+      "description": "Cliente explicou o cenário atual e as principais necessidades.",
+      "date": "2026-10-30T16:30:00.000Z",
+      "author": "Gabriel Bergamini"
+    },
+    {
+      "id": 4,
+      "customerId": 3,
+      "type": "note",
+      "title": "Renovação confirmada",
+      "description": "Renovação do contrato confirmada para o próximo período.",
+      "date": "2026-10-31T11:20:00.000Z",
+      "author": "Gabriel Bergamini"
+    },
+    {
+      "id": 5,
+      "customerId": 5,
+      "type": "email",
+      "title": "Confirmação de escopo",
+      "description": "Escopo da próxima entrega confirmado por e-mail.",
+      "date": "2026-10-27T13:15:00.000Z",
+      "author": "Gabriel Bergamini"
+    },
+    {
+      "id": 6,
+      "customerId": 6,
+      "type": "call",
+      "title": "Retorno sobre orçamento",
+      "description": "Cliente pediu mais alguns dias para avaliar a proposta.",
+      "date": "2026-10-28T09:00:00.000Z",
+      "author": "Gabriel Bergamini"
+    },
+    {
+      "id": 7,
+      "customerId": 7,
+      "type": "meeting",
+      "title": "Planejamento de expansão",
+      "description": "Conversa sobre implantação em uma nova unidade.",
+      "date": "2026-10-25T17:45:00.000Z",
+      "author": "Gabriel Bergamini"
+    },
+    {
+      "id": 8,
+      "customerId": 9,
+      "type": "email",
+      "title": "Material de apresentação",
+      "description": "Material institucional enviado após o primeiro contato.",
+      "date": "2026-10-30T15:40:00.000Z",
+      "author": "Gabriel Bergamini"
+    },
+    {
+      "id": 9,
+      "customerId": 10,
+      "type": "note",
+      "title": "Solicitação de novos acessos",
+      "description": "Cliente solicitou inclusão de dois usuários adicionais.",
+      "date": "2026-10-30T10:00:00.000Z",
+      "author": "Gabriel Bergamini"
+    },
+    {
+      "id": 10,
+      "customerId": 11,
+      "type": "meeting",
+      "title": "Avaliação de integração",
+      "description": "Levantamento inicial sobre integração financeira.",
+      "date": "2026-10-26T16:20:00.000Z",
+      "author": "Gabriel Bergamini"
+    }
+  ],
+  "dashboard": [
+    {
+      "id": 1,
+      "totalCustomers": 12,
+      "activeCustomers": 7,
+      "leads": 3,
+      "inactiveCustomers": 2,
+      "monthlyRevenue": 28450,
+      "conversionRate": 23.5,
+      "revenueChange": 12.8,
+      "customersChange": 8.3
+    }
+  ]
+}

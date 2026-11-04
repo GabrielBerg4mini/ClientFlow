@@ -1,0 +1,369 @@
+{
+  "info": {
+    "_postman_id": "183b3619-cc02-4155-b647-2ad589ad5eda",
+    "name": "ClientFlow CRM API",
+    "description": "Coleção de requests para o projeto de portfólio ClientFlow. API REST local simulada com JSON Server. Importe também o arquivo db.json e siga o README para iniciar a API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01 - Dashboard",
+      "item": [
+        {
+          "name": "Get dashboard summary",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "description": "Retorna os indicadores principais do dashboard.",
+            "url": "{{baseUrl}}/dashboard/1"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Retorna um objeto', () => pm.expect(pm.response.json()).to.be.an('object'));",
+                  "pm.test('Possui indicadores', () => pm.expect(pm.response.json()).to.have.property('totalCustomers'));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "02 - Customers",
+      "item": [
+        {
+          "name": "List customers (paginated)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "description": "Lista clientes com paginação e ordenação. O JSON Server retorna X-Total-Count no header da resposta quando _limit é informado.",
+            "url": "{{baseUrl}}/customers?_page=1&_limit=8&_sort=createdAt&_order=desc"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Retorna uma lista', () => pm.expect(pm.response.json()).to.be.an('array'));",
+                  "pm.test('Página contém no máximo 8 clientes', () => pm.expect(pm.response.json().length).to.be.at.most(8));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search customers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "description": "Busca clientes por texto nos campos do recurso.",
+            "url": "{{baseUrl}}/customers?q=mariana"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Retorna uma lista', () => pm.expect(pm.response.json()).to.be.an('array'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Filter customers by status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "description": "Filtra clientes pelo status. Valores disponíveis: active, lead e inactive.",
+            "url": "{{baseUrl}}/customers?status=active"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Todos os clientes estão ativos', () => pm.response.json().forEach(customer => pm.expect(customer.status).to.eql('active')));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get customer by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "description": "Retorna os dados de um cliente específico.",
+            "url": "{{baseUrl}}/customers/1"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Cliente possui identificador', () => pm.expect(pm.response.json()).to.have.property('id'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "description": "Cria um cliente. O JSON Server gera o ID automaticamente.",
+            "url": "{{baseUrl}}/customers",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ana Souza\",\n  \"company\": \"Ana Souza Studio\",\n  \"email\": \"ana@anasouza.com\",\n  \"phone\": \"+55 11 99999-0000\",\n  \"status\": \"lead\",\n  \"source\": \"website\",\n  \"value\": 7500,\n  \"createdAt\": \"2026-11-04T12:00:00.000Z\",\n  \"lastContactAt\": \"2026-11-04T12:00:00.000Z\",\n  \"notes\": \"Cliente criado pelo request do Postman.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 201', () => pm.response.to.have.status(201));",
+                  "pm.test('Resposta contém ID', () => pm.expect(pm.response.json()).to.have.property('id'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Update customer (PATCH)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "description": "Atualiza parcialmente um cliente. Altere os campos do body conforme necessário.",
+            "url": "{{baseUrl}}/customers/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"active\",\n  \"notes\": \"Informações atualizadas pelo Postman.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Resposta contém ID', () => pm.expect(pm.response.json()).to.have.property('id'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Delete customer",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "description": "Exclui o cliente de ID 12. Atenção: a alteração é persistida em db.json enquanto a API estiver rodando.",
+            "url": "{{baseUrl}}/customers/12"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "03 - Activities",
+      "item": [
+        {
+          "name": "List all activities",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "description": "Lista atividades ordenadas pela data, da mais recente para a mais antiga.",
+            "url": "{{baseUrl}}/activities?_sort=date&_order=desc"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Retorna uma lista', () => pm.expect(pm.response.json()).to.be.an('array'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List activities by customer",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "description": "Lista o histórico de atividades de um cliente específico.",
+            "url": "{{baseUrl}}/activities?customerId=1&_sort=date&_order=desc"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Todas as atividades pertencem ao cliente 1', () => pm.response.json().forEach(activity => pm.expect(Number(activity.customerId)).to.eql(1)));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create activity",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "description": "Registra uma nova atividade no histórico de um cliente.",
+            "url": "{{baseUrl}}/activities",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": 1,\n  \"type\": \"note\",\n  \"title\": \"Nota de acompanhamento\",\n  \"description\": \"Cliente entrou em contato para solicitar mais informações.\",\n  \"date\": \"2026-11-04T12:30:00.000Z\",\n  \"author\": \"Gabriel Bergamini\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 201', () => pm.response.to.have.status(201));",
+                  "pm.test('Resposta contém ID', () => pm.expect(pm.response.json()).to.have.property('id'));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3001",
+      "type": "string"
+    }
+  ]
+}
